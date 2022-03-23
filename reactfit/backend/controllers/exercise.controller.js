@@ -1,21 +1,21 @@
 const db = require("../models");
 const Exercise = db.exercise;
 exports.getExercises = (req, res) => {
-  Exercise.find()
+  Exercise.find({ userId: req.params.id })
     .then((exercises) => res.json(exercises))
     .catch((err) => res.status(400).json("Error: " + err));
 };
 exports.addExercise = (req, res) => {
   const newExercise = new Exercise({
-    username: req.body.username,
     description: req.body.description,
     duration: Number(req.body.duration),
     date: Date.parse(req.body.date),
+    userId: req.body.userId,
   });
   newExercise
     .save()
     .then(() => res.json("Exercise added!"))
-    .catch((err) => res.status(400).json("Error: " + err));
+    .catch((err) => res.status(400).json("Errorr: " + err));
 };
 exports.getExercise = (req, res) => {
   Exercise.findById(req.params.id)
@@ -30,7 +30,6 @@ exports.deleteExercise = (req, res) => {
 exports.updateExercise = (req, res) => {
   Exercise.findById(req.params.id)
     .then((exercise) => {
-      exercise.username = req.body.username;
       exercise.description = req.body.description;
       exercise.duration = Number(req.body.duration);
       exercise.date = Date.parse(req.body.date);

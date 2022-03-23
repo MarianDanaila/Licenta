@@ -10,6 +10,10 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import ExercisesList from "./components/exercises-list.component";
+import UpdateExercise from "./components/update-exercise.component";
+import CreateExercise from "./components/create-exercise.component";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -68,6 +72,20 @@ class App extends Component {
                 </Link>
               </li>
             )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/exercises"} className="nav-link">
+                  Exercises
+                </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/exercise-create"} className="nav-link">
+                  Create Exercise
+                </Link>
+              </li>
+            )}
           </div>
           {currentUser ? (
             <div className="navbar-nav ml-auto">
@@ -106,6 +124,9 @@ class App extends Component {
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
+            <Route path="/exercises" component={ExercisesList} />
+            <Route path="/exercise-update/:id" component={UpdateExercise} />
+            <Route path="/exercise-create" component={CreateExercise} />
           </Switch>
         </div>
       </div>
