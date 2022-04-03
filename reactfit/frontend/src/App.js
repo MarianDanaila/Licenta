@@ -13,6 +13,7 @@ import BoardAdmin from "./components/board-admin.component";
 import ExercisesList from "./components/exercises-list.component";
 import UpdateExercise from "./components/update-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
+import Map from "./components/map.component";
 
 class App extends Component {
   constructor(props) {
@@ -42,9 +43,6 @@ class App extends Component {
     return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/"} className="navbar-brand">
-            bezKoder
-          </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/home"} className="nav-link">
@@ -86,6 +84,13 @@ class App extends Component {
                 </Link>
               </li>
             )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/map"} className="nav-link">
+                  Map
+                </Link>
+              </li>
+            )}
           </div>
           {currentUser ? (
             <div className="navbar-nav ml-auto">
@@ -115,7 +120,7 @@ class App extends Component {
             </div>
           )}
         </nav>
-        <div className="container mt-3">
+        <div>
           <Switch>
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
@@ -127,6 +132,7 @@ class App extends Component {
             <Route path="/exercises" component={ExercisesList} />
             <Route path="/exercise-update/:id" component={UpdateExercise} />
             <Route path="/exercise-create" component={CreateExercise} />
+            <Route path="/map" component={Map} />
           </Switch>
         </div>
       </div>

@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const db = require("./models");
 require("dotenv").config();
 const app = express();
 
@@ -11,7 +12,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-const db = require("./models");
+
 const Role = db.role;
 db.mongoose
   .connect(process.env.CONNECTION_STRING, {
@@ -37,6 +38,7 @@ app.get("/", (req, res) => {
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
 require("./routes/exercise.routes")(app);
+require("./routes/pin.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
