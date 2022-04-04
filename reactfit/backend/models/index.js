@@ -6,5 +6,6 @@ db.user = require("./user.model");
 db.role = require("./role.model");
 db.exercise = require("./exercise.model");
 db.pin = require("./pin.model");
+db.meal = require("./meal.model");
 db.ROLES = ["user", "admin", "moderator"];
 module.exports = db;
