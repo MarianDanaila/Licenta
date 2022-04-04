@@ -8,9 +8,9 @@ module.exports = function (app) {
     );
     next();
   });
-  app.get("/api/meal/:id", [authJwt.verifyToken], controller.getMeals);
+  app.get("/api/meals/:id", [authJwt.verifyToken], controller.getMeals);
   app.post("/api/meal", [authJwt.verifyToken], controller.addMeal);
   app.get("/api/meal/:id", [authJwt.verifyToken], controller.getMeal);
   app.delete("/api/meal/:id", [authJwt.verifyToken], controller.deleteMeal);
-  app.post("/api/exercise/:id", [authJwt.verifyToken], controller.updateMeal);
+  app.post("/api/meal/:id", [authJwt.verifyToken], controller.updateMeal);
 };
