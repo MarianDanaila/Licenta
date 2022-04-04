@@ -71,8 +71,9 @@ export default class EditExercise extends Component {
       userId: this.state.currentUser.id,
     };
 
-    console.log(exercise);
-    ExerciseService.updateExercise(this.props.match.params.id, exercise);
+    ExerciseService.updateExercise(this.props.match.params.id, exercise)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log(err));
 
     window.location = "/exercises";
   }

@@ -14,6 +14,9 @@ import ExercisesList from "./components/exercises-list.component";
 import UpdateExercise from "./components/update-exercise.component";
 import CreateExercise from "./components/create-exercise.component";
 import Map from "./components/map.component";
+import CreateMeal from "./components/create-meal.component";
+import MealsList from "./components/meals-list.component";
+import UpdateMeal from "./components/update-meal.component";
 
 class App extends Component {
   constructor(props) {
@@ -86,6 +89,20 @@ class App extends Component {
             )}
             {currentUser && (
               <li className="nav-item">
+                <Link to={"/meals"} className="nav-link">
+                  Meals
+                </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/meal-create"} className="nav-link">
+                  Create Meal
+                </Link>
+              </li>
+            )}
+            {currentUser && (
+              <li className="nav-item">
                 <Link to={"/map"} className="nav-link">
                   Map
                 </Link>
@@ -132,6 +149,9 @@ class App extends Component {
             <Route path="/exercises" component={ExercisesList} />
             <Route path="/exercise-update/:id" component={UpdateExercise} />
             <Route path="/exercise-create" component={CreateExercise} />
+            <Route path="/meals" component={MealsList} />
+            <Route path="/meal-update/:id" component={UpdateMeal} />
+            <Route path="/meal-create" component={CreateMeal} />
             <Route path="/map" component={Map} />
           </Switch>
         </div>
