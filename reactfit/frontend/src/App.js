@@ -17,6 +17,7 @@ import Map from "./components/map.component";
 import CreateMeal from "./components/create-meal.component";
 import MealsList from "./components/meals-list.component";
 import UpdateMeal from "./components/update-meal.component";
+import MusicPlayer from "./components/music-player.component";
 
 class App extends Component {
   constructor(props) {
@@ -108,6 +109,13 @@ class App extends Component {
                 </Link>
               </li>
             )}
+            {currentUser && (
+              <li className="nav-item">
+                <Link to={"/music"} className="nav-link">
+                  Music Player
+                </Link>
+              </li>
+            )}
           </div>
           {currentUser ? (
             <div className="navbar-nav ml-auto">
@@ -153,6 +161,7 @@ class App extends Component {
             <Route path="/meal-update/:id" component={UpdateMeal} />
             <Route path="/meal-create" component={CreateMeal} />
             <Route path="/map" component={Map} />
+            <Route path="/music" component={MusicPlayer} />
           </Switch>
         </div>
       </div>

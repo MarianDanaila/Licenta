@@ -3,7 +3,7 @@ import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8080/api/";
 class ExerciseService {
-  getExercises(userId) {
+  getExercises(params) {
     return axios.get(API_URL + "exercises/" + userId, {
       headers: authHeader(),
     });
