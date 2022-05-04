@@ -35,12 +35,12 @@ app.get("/", (req, res) => {
   });
 });
 
-require("./routes/auth.routes")(app);
-require("./routes/user.routes")(app);
-require("./routes/exercise.routes")(app);
-require("./routes/pin.routes")(app);
-require("./routes/meal.routes")(app);
-require("./routes/music.routes")(app);
+require("./routes/auth")(app);
+require("./routes/user")(app);
+require("./routes/exercise")(app);
+require("./routes/pin")(app);
+require("./routes/meal")(app);
+require("./routes/music")(app);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

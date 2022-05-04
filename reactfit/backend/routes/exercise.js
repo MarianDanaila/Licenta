@@ -1,5 +1,5 @@
 const { authJwt } = require("../middlewares");
-const controller = require("../controllers/exercise.controller");
+const controller = require("../controllers/exercise");
 module.exports = function (app) {
   app.use(function (req, res, next) {
     res.header(

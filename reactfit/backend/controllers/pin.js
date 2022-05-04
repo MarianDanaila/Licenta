@@ -8,7 +8,6 @@ exports.getPins = (req, res) => {
 
 exports.addPin = (req, res) => {
   const newPin = new Pin(req.body);
-  console.log(newPin);
   newPin
     .save()
     .then(() => res.status(200).json(newPin))
