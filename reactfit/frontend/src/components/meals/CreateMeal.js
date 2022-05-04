@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import authService from "../services/auth.service";
-import mealService from "../services/meal.service";
+import AuthService from "../../services/AuthService";
+import MealService from "../../services/MealService";
 
 export default class CreateMeal extends Component {
   constructor(props) {
@@ -15,7 +14,7 @@ export default class CreateMeal extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      currentUser: authService.getCurrentUser(),
+      currentUser: AuthService.getCurrentUser(),
       description: "",
       calories: 0,
       date: new Date(),
@@ -50,8 +49,7 @@ export default class CreateMeal extends Component {
       userId: this.state.currentUser.id,
     };
 
-    mealService
-      .createMeal(meal)
+    MealService.createMeal(meal)
       .then((res) => console.log(res.data))
       .catch((err) => console.log(err));
 

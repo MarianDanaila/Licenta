@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthService from "../services/auth.service";
-import ExerciseService from "../services/exercise.service";
+import AuthService from "../../services/AuthService";
+import ExerciseService from "../../services/ExerciseService";
 
 const Exercise = (props) => (
   <tr>
@@ -9,7 +9,7 @@ const Exercise = (props) => (
     <td>{props.exercise.duration}</td>
     <td>{props.exercise.date.substring(0, 10)}</td>
     <td>
-      <Link to={"/exercise-update/" + props.exercise._id}>edit</Link> |{" "}
+      <Link to={"/exercise-edit/" + props.exercise._id}>edit</Link> |{" "}
       <a
         href="#"
         onClick={() => {

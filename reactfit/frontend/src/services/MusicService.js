@@ -1,12 +1,12 @@
 import axios from "axios";
-import authHeader from "./auth-header";
+import AuthHeader from "./AuthHeader";
 
 const API_URL = "http://localhost:8080/api/";
 class MusicService {
   getLyrics(params) {
     return axios.get(API_URL + "lyrics", {
       params: params,
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
   spotifyLogin(code) {
@@ -14,7 +14,7 @@ class MusicService {
       API_URL + "spotify-login",
       { code },
       {
-        headers: authHeader(),
+        headers: AuthHeader(),
       }
     );
   }
@@ -24,7 +24,7 @@ class MusicService {
       API_URL + "spotify-token-refresh",
       { refreshToken },
       {
-        headers: authHeader(),
+        headers: AuthHeader(),
       }
     );
   }

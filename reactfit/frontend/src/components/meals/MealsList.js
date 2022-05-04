@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Chart from "./meals-chart.component";
-import authService from "../services/auth.service";
-import mealService from "../services/meal.service";
+import Chart from "./Chart";
+import AuthService from "../../services/AuthService";
+import MealService from "../../services/MealService";
 
 const Meal = (props) => (
   <tr>
@@ -38,11 +38,10 @@ export default class MealsList extends Component {
   }
 
   componentDidMount() {
-    var currentUserId = authService.getCurrentUser()
-      ? authService.getCurrentUser().id
+    var currentUserId = AuthService.getCurrentUser()
+      ? AuthService.getCurrentUser().id
       : null;
-    mealService
-      .getMeals(currentUserId)
+    MealService.getMeals(currentUserId)
       .then((response) => {
         this.setState({ meals: response.data });
       })
@@ -60,7 +59,7 @@ export default class MealsList extends Component {
   }
 
   deleteMeal(id) {
-    mealService.deleteMeal(id).then((response) => {
+    MealService.deleteMeal(id).then((response) => {
       console.log("DA");
       console.log(response.data);
     });

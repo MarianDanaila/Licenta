@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-
-import UserService from "../services/user.service";
-
-export default class BoardAdmin extends Component {
+import UserService from "../../services/UserService";
+export default class BoardUser extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       content: "",
     };
   }
-
   componentDidMount() {
-    UserService.getAdminBoard().then(
+    UserService.getUserBoard().then(
       (response) => {
         this.setState({
           content: response.data,
@@ -30,7 +26,6 @@ export default class BoardAdmin extends Component {
       }
     );
   }
-
   render() {
     return (
       <div className="container">

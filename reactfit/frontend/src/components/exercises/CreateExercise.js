@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import AuthService from "../services/auth.service";
-import exerciseService from "../services/exercise.service";
+import AuthService from "../../services/AuthService";
+import ExerciseService from "../../services/ExerciseService";
 
 export default class CreateExercise extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ export default class CreateExercise extends Component {
       userId: this.state.currentUser.id,
     };
 
-    exerciseService.createExercise(exercise);
+    ExerciseService.createExercise(exercise);
 
     window.location = "/exercises";
   }

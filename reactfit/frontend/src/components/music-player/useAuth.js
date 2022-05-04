@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import MusicService from "../services/music.service";
+import MusicService from "../../services/MusicService";
 
 export default function useAuth(code) {
   const [accessToken, setAccessToken] = useState();

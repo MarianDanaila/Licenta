@@ -1,36 +1,36 @@
 import axios from "axios";
-import authHeader from "./auth-header";
+import AuthHeader from "./AuthHeader";
 
 const API_URL = "http://localhost:8080/api/";
-class ExerciseService {
+class MealService {
   getMeals(userId) {
     return axios.get(API_URL + "meals/" + userId, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   getMeal(mealId) {
     return axios.get(API_URL + "meal/" + mealId, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   createMeal(meal) {
     return axios.post(API_URL + "meal/", meal, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   updateMeal(mealId, meal) {
     return axios.post(API_URL + "meal/" + mealId, meal, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   deleteMeal(mealId) {
     return axios.delete(API_URL + "meal/" + mealId, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 }
-export default new ExerciseService();
+export default new MealService();

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Bar, Pie } from "react-chartjs-2";
-import axios from "axios";
-import authService from "../services/auth.service";
-import mealService from "../services/meal.service";
+import { Bar } from "react-chartjs-2";
+import AuthService from "../../services/AuthService";
+import MealService from "../../services/MealService";
 
 const Chart = () => {
   const [chartData, setChartData] = useState({});
@@ -10,11 +9,10 @@ const Chart = () => {
   const chart = () => {
     let meal = [];
     let calories = [];
-    var currentUserId = authService.getCurrentUser()
-      ? authService.getCurrentUser().id
+    var currentUserId = AuthService.getCurrentUser()
+      ? AuthService.getCurrentUser().id
       : null;
-    mealService
-      .getMeals(currentUserId)
+    MealService.getMeals(currentUserId)
       .then((res) => {
         for (const dataObj of res.data) {
           meal.push(dataObj.description);

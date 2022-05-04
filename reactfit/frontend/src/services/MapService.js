@@ -1,18 +1,18 @@
 import axios from "axios";
-import authHeader from "./auth-header";
+import AuthHeader from "./AuthHeader";
 
 const API_URL = "http://localhost:8080/api/";
-class PinService {
+class MapService {
   getPins() {
     return axios.get(API_URL + "pins", {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   addPin(pin) {
     return axios.post(API_URL + "pin", pin, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 }
-export default new PinService();
+export default new MapService();

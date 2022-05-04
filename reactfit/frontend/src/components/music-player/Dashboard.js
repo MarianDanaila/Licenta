@@ -4,7 +4,7 @@ import Player from "./Player";
 import TrackSearchResult from "./TrackSearchResult";
 import { Container, Form } from "react-bootstrap";
 import SpotifyWebApi from "spotify-web-api-node";
-import MusicService from "../services/music.service";
+import MusicService from "../../services/MusicService";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: "c7492ef629204393bf8cd7257afe6631",
@@ -30,7 +30,6 @@ export default function Dashboard({ code }) {
       track: playingTrack.title,
       artist: playingTrack.artist,
     }).then((res) => {
-      console.log(res.data);
       setLyrics(res.data.lyrics);
     });
   }, [playingTrack]);

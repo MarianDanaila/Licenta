@@ -1,10 +1,10 @@
-import "../app.css";
+import "../../app.css";
 import React from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { Room, Star } from "@material-ui/icons";
 import { format } from "timeago.js";
-import AuthService from "../services/auth.service";
-import pinService from "../services/pin.service";
+import AuthService from "../../services/AuthService";
+import MapService from "../../services/MapService";
 import "mapbox-gl/dist/mapbox-gl.css";
 
 class Map extends React.Component {
@@ -29,8 +29,7 @@ class Map extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   componentDidMount() {
-    pinService
-      .getPins()
+    MapService.getPins()
       .then((res) => {
         this.setState({
           pins: res.data,
@@ -63,8 +62,7 @@ class Map extends React.Component {
       lat: this.state.newPlace.lat,
       long: this.state.newPlace.long,
     };
-    pinService
-      .addPin(newPin)
+    MapService.addPin(newPin)
       .then((res) => {
         this.setState({
           pins: [...this.state.pins, res.data],

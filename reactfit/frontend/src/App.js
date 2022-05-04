@@ -2,22 +2,22 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import AuthService from "./services/auth.service";
-import Login from "./components/login.component";
-import Register from "./components/register.component";
-import Home from "./components/home.component";
-import Profile from "./components/profile.component";
-import BoardUser from "./components/board-user.component";
-import BoardModerator from "./components/board-moderator.component";
-import BoardAdmin from "./components/board-admin.component";
-import ExercisesList from "./components/exercises-list.component";
-import UpdateExercise from "./components/update-exercise.component";
-import CreateExercise from "./components/create-exercise.component";
-import Map from "./components/map.component";
-import CreateMeal from "./components/create-meal.component";
-import MealsList from "./components/meals-list.component";
-import UpdateMeal from "./components/update-meal.component";
-import MusicPlayer from "./components/music-player.component";
+import AuthService from "./services/AuthService";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Home from "./components/user/Home";
+import Profile from "./components/user/Profile";
+import BoardUser from "./components/user/BoardUser";
+import BoardModerator from "./components/user/BoardModerator";
+import BoardAdmin from "./components/user/BoardAdmin";
+import ExercisesList from "./components/exercises/ExercisesList";
+import EditExercise from "./components/exercises/EditExercise";
+import CreateExercise from "./components/exercises/CreateExercise";
+import Map from "./components/map/Map";
+import CreateMeal from "./components/meals/CreateMeal";
+import MealsList from "./components/meals/MealsList";
+import UpdateMeal from "./components/meals/UpdateMeal";
+import MusicPlayer from "./components/music-player/MusicPlayer";
 
 class App extends Component {
   constructor(props) {
@@ -155,7 +155,7 @@ class App extends Component {
             <Route path="/mod" component={BoardModerator} />
             <Route path="/admin" component={BoardAdmin} />
             <Route path="/exercises" component={ExercisesList} />
-            <Route path="/exercise-update/:id" component={UpdateExercise} />
+            <Route path="/exercise-edit/:id" component={EditExercise} />
             <Route path="/exercise-create" component={CreateExercise} />
             <Route path="/meals" component={MealsList} />
             <Route path="/meal-update/:id" component={UpdateMeal} />

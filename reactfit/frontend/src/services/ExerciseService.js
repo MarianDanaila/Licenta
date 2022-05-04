@@ -1,35 +1,35 @@
 import axios from "axios";
-import authHeader from "./auth-header";
+import AuthHeader from "./AuthHeader";
 
 const API_URL = "http://localhost:8080/api/";
 class ExerciseService {
-  getExercises(params) {
+  getExercises(userId) {
     return axios.get(API_URL + "exercises/" + userId, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   getExercise(exerciseId) {
     return axios.get(API_URL + "exercise/" + exerciseId, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   createExercise(exercise) {
     return axios.post(API_URL + "exercise/", exercise, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   updateExercise(exerciseId, exercise) {
     return axios.post(API_URL + "exercise/" + exerciseId, exercise, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 
   deleteExercise(exerciseId) {
     return axios.delete(API_URL + "exercise/" + exerciseId, {
-      headers: authHeader(),
+      headers: AuthHeader(),
     });
   }
 }
