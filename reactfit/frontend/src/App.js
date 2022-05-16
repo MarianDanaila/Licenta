@@ -47,111 +47,161 @@ class App extends Component {
     const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
     return (
       <div>
-        <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <Link to={"/home"} className="nav-link">
-                Home
-              </Link>
-            </li>
-            {showModeratorBoard && (
-              <li className="nav-item">
-                <Link to={"/mod"} className="nav-link">
-                  Moderator Board
-                </Link>
-              </li>
-            )}
-            {showAdminBoard && (
-              <li className="nav-item">
-                <Link to={"/admin"} className="nav-link">
-                  Admin Board
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/user"} className="nav-link">
-                  User
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/exercises"} className="nav-link">
-                  Exercises
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/exercise-create"} className="nav-link">
-                  Create Exercise
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/meals"} className="nav-link">
-                  Meals
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/meal-create"} className="nav-link">
-                  Create Meal
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/map"} className="nav-link">
-                  Map
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/music"} className="nav-link">
-                  Music Player
-                </Link>
-              </li>
-            )}
-            {currentUser && (
-              <li className="nav-item">
-                <Link to={"/weather"} className="nav-link">
-                  Weather
-                </Link>
-              </li>
-            )}
+        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div className="container-fluid">
+            <Link to={"/home"} className="navbar-brand">
+              ReactFit
+            </Link>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                {showModeratorBoard && (
+                  <li className="nav-item">
+                    <Link to={"/mod"} className="nav-link">
+                      Moderator Board
+                    </Link>
+                  </li>
+                )}
+                {showAdminBoard && (
+                  <li className="nav-item">
+                    <Link to={"/admin"} className="nav-link">
+                      Admin Board
+                    </Link>
+                  </li>
+                )}
+                {currentUser && (
+                  <li className="nav-item">
+                    <Link to={"/user"} className="nav-link">
+                      User
+                    </Link>
+                  </li>
+                )}
+                {currentUser && (
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Exercises Tracker
+                    </a>
+                    <ul
+                      className="dropdown-menu"
+                      aria-labelledby="navbarDropdown"
+                    >
+                      <li>
+                        <Link className="dropdown-item" to={"/exercises"}>
+                          Exercises
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="dropdown-item" to={"/exercise-create"}>
+                          Add Exercise
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                )}
+                {currentUser && (
+                  <li className="nav-item dropdown">
+                    <a
+                      className="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      Meals Tracker
+                    </a>
+                    <ul
+                      className="dropdown-menu"
+                      aria-labelledby="navbarDropdown"
+                    >
+                      <li>
+                        <Link className="dropdown-item" to={"/meals"}>
+                          Meals
+                        </Link>
+                      </li>
+                      <li>
+                        <Link className="dropdown-item" to={"/meal-create"}>
+                          Add Meal
+                        </Link>
+                      </li>
+                    </ul>
+                  </li>
+                )}
+                {currentUser && (
+                  <li className="nav-item">
+                    <Link to={"/map"} className="nav-link">
+                      Map
+                    </Link>
+                  </li>
+                )}
+                {currentUser && (
+                  <li className="nav-item">
+                    <Link to={"/music"} className="nav-link">
+                      Music Player
+                    </Link>
+                  </li>
+                )}
+                {currentUser && (
+                  <li className="nav-item">
+                    <Link to={"/weather"} className="nav-link">
+                      Weather
+                    </Link>
+                  </li>
+                )}
+                {currentUser ? (
+                  <div className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                      <Link to={"/profile"} className="nav-link">
+                        Profile
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        to={"/login"}
+                        className="nav-link"
+                        onClick={this.logOut}
+                      >
+                        LogOut
+                      </Link>
+                    </li>
+                  </div>
+                ) : (
+                  <div className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                      <Link to={"/login"} className="nav-link">
+                        Login
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link to={"/register"} className="nav-link">
+                        Sign Up
+                      </Link>
+                    </li>
+                  </div>
+                )}
+              </ul>
+            </div>
           </div>
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  {currentUser.username}
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={this.logOut}>
-                  LogOut
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Sign Up
-                </Link>
-              </li>
-            </div>
-          )}
         </nav>
         <div>
           <Switch>
