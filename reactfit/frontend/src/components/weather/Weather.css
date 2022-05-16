@@ -1,0 +1,13 @@
+.weather {
+    margin: 0 auto;
+    margin-top: 120px;
+    max-width: 600px;
+    text-align: center;
+    width: 100%;
+  }
+  @media (max-width: 767.98px) {
+    .weather {
+      margin: 0 auto;
+      margin-top: 40px;
+    }
+  }

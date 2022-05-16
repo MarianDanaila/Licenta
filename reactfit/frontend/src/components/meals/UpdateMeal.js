@@ -71,8 +71,8 @@ export default class UpdateMeal extends Component {
 
   render() {
     return (
-      <div class="container">
-        <div class="card border-0 shadow my-4">
+      <div class="containerr">
+        <div class="cardd border-0 shadow my-4">
           <div class="card-body p-3"></div>
           <div class="container">
             <div>

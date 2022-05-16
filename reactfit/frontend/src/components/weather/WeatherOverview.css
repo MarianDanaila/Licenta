@@ -1,0 +1,32 @@
+.WeatherOverview h1 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 36px;
+  }
+  .WeatherOverview h2 {
+    font-family: "Merriweather Sans", sans-serif;
+    font-size: 46px;
+  }
+  .WeatherOverview ul {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  .WeatherOverview canvas {
+    position: relative;
+    top: 16px;
+    left: -4px;
+  }
+  .WeatherOverview .weather-conditions {
+    font-size: 18px;
+    height: 44px;
+    position: relative;
+    bottom: 12px;
+  }
+  .WeatherOverview .other-measurements {
+    font-size: 16px;
+    padding-top: 20px;
+  }
+  .WeatherOverview .perception {
+    padding-top: 14px;
+  }
+  

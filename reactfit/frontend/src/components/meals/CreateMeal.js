@@ -58,8 +58,8 @@ export default class CreateMeal extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="card border-0 shadow my-4">
+      <div className="containerr">
+        <div className="cardd border-0 shadow my-4">
           <div className="card-body p-3"></div>
           <div>
             <h3 style={{ textAlign: "center" }}>Add New Meal </h3>

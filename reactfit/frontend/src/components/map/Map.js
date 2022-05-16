@@ -1,4 +1,4 @@
-import "../../app.css";
+import "./map.css";
 import React from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { Room, Star } from "@material-ui/icons";

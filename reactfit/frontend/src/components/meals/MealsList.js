@@ -84,8 +84,8 @@ export default class MealsList extends Component {
   render() {
     return (
       <div>
-        <div className="container">
-          <div className="card border-0 shadow my-4">
+        <div className="containerr">
+          <div className="cardd border-0 shadow my-4">
             <div className="card-body p-5">
               <h3 style={{ textAlign: "center", marginBottom: "15px" }}>
                 Food Tracker
@@ -107,9 +107,9 @@ export default class MealsList extends Component {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="containerr">
           <div
-            className="card border-0 shadow my-2"
+            className="cardd border-0 shadow my-2"
             style={{ padding: "2rem" }}
           >
             <div className="card-body p-1"></div>
